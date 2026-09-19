@@ -16,7 +16,7 @@ import io.levendel.utilities.ColorMapOperations;
 
 public class App {
     static final Point ORIGIN = new Point(0, 0);
-    static final Point BOUND = new Point(512,512);
+    static final Point BOUND = new Point(256,256);
 
     static ColorMap canvas = new ColorMap();
     static ColorMap changes = new ColorMap();
@@ -204,10 +204,11 @@ public class App {
         frame.pack();
         frame.setVisible(true);
     }
+    public static final int DISPLAYSCALE = 2;
 
     public static void updateImage(BufferedImage image) {
-        int width = image.getWidth();
-        int height = image.getHeight();
+        int width = image.getWidth()*DISPLAYSCALE;
+        int height = image.getHeight()*DISPLAYSCALE;
 
         Image scaled = image.getScaledInstance(
             width, height, Image.SCALE_DEFAULT
