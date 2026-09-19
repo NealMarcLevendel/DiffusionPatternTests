@@ -116,10 +116,13 @@ public class App {
         if (bottom_left) numSidesWhite++;
         if (bottom_right) numSidesWhite++;
 
-        if (numSidesWhite == 6) { //==3
-            changes.setColor(curr, new Color(255,255,255,255));
-            //System.out.print("Set");
-        }
+        // if (left) { //==3
+        //     changes.setColor(curr, new Color(255,255,255,255));
+        //     //System.out.print("Set");
+        // }
+        // if ((!top_right && !bottom_left && top_left && bottom_right)) {
+        //     changes.setColor(curr, new Color(255,255,255,255));
+        // }
     }
     public static void whiteToBlack(Point curr) {
         boolean left = false;
@@ -163,11 +166,14 @@ public class App {
         if (bottom_left) numSidesBlack++;
         if (bottom_right) numSidesBlack++;
 
-        if (numSidesBlack > 4) { // >2
+        // if (bottom) { // >2
+        //     changes.setColor(curr, new Color(255,0,0,0));
+        //     //System.out.print("Set");
+        // }
+        if (!bottom_left && !top_right) {
             changes.setColor(curr, new Color(255,0,0,0));
-            //System.out.print("Set");
         }
-    }
+    } 
 
     public static int choose(int a, int b) {
         Random random = new Random();
@@ -186,11 +192,14 @@ public class App {
         label = new JLabel();
         frame.add(label);
 
+        //frame.setSize(BOUND.x-ORIGIN.x, BOUND.y-ORIGIN.y);;
+
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
         updateImage(image);
+
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public static void updateImage(BufferedImage image) {
