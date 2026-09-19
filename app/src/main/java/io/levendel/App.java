@@ -123,6 +123,9 @@ public class App {
         // if ((!top_right && !bottom_left && top_left && bottom_right)) {
         //     changes.setColor(curr, new Color(255,255,255,255));
         // }
+        if (numSidesWhite > 3) {
+            changes.setColor(curr, new Color(255,255,255,255));
+        }
     }
     public static void whiteToBlack(Point curr) {
         boolean left = false;
@@ -170,7 +173,7 @@ public class App {
         //     changes.setColor(curr, new Color(255,0,0,0));
         //     //System.out.print("Set");
         // }
-        if (!bottom_left && !top_right) {
+        if (numSidesBlack > 3) {
             changes.setColor(curr, new Color(255,0,0,0));
         }
     } 
